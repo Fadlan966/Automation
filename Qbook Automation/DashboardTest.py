@@ -24,14 +24,14 @@ def run(playwright: Playwright) -> None:
 
     # Click Sign In button
     page.get_by_role("button", name="Sign In").click()
-    page.wait_for_timeout(15000)  # Wait for 10 seconds to ensure dashboard loads
+    page.wait_for_timeout(10000)  # Wait for 10 seconds to ensure dashboard loads
     # Select location and user
     page.get_by_text("BAKU, SCBD").click()
-    page.wait_for_timeout(5000)  # Wait for 5 seconds to ensure dashboard loads
+    page.wait_for_timeout(3000)  # Wait for 3 seconds to ensure dashboard loads
     page.get_by_text("KN Testing").click()
     page.wait_for_timeout(10000)  # Wait for 10 seconds to ensure dashboard loads
     page.get_by_text("FAFadlan QASuper Admin (2)").click()
-
+    page.wait_for_timeout(3000)  # Wait for 3 seconds to ensure dashboard loads
     # Logout
     page.get_by_role("menuitem", name="logout Logout").click()
 
