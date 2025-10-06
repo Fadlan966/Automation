@@ -20,10 +20,11 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("button", name="Sign In").click()
 
     # Tunggu beberapa detik agar login selesai & dashboard termuat
-    page.wait_for_timeout(15000) # Tunggu 15 detik
+    page.wait_for_timeout(10000) # Tunggu 10 detik
 
     # Klik profil dan logout
     page.get_by_text("Fadlan QA", exact=True).click()
+    page.wait_for_timeout(3000) # Tunggu 3 detik
     page.get_by_role("img", name="down").locator("svg").click()
     page.get_by_text("Logout").click()
 
