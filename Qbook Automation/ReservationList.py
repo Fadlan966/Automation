@@ -37,18 +37,6 @@ def run(playwright: Playwright) -> None:
     page.get_by_title("Reservation", exact=True).locator("div").click()
     page.wait_for_timeout(2000)
     
-    # Set time
-    page.locator(".ant-select.ant-select-outlined.ant-select-in-form-item.ant-select-status-success.css-1nf76zr.ant-select-focused > .ant-select-selector").click()
-    page.wait_for_timeout(2000)
-    page.locator("div").filter(has_text=re.compile(r"^Start$")).nth(1).click()
-    page.wait_for_timeout(2000)
-    page.get_by_role("button", name="21:00").click()
-    page.wait_for_timeout(2000)
-    page.locator("div").filter(has_text=re.compile(r"^End$")).nth(1).click()
-    page.wait_for_timeout(2000)
-    page.get_by_role("button", name="22:00").click()
-    page.wait_for_timeout(2000)
-    
     # Set guests
     page.get_by_text("Adult (1)").click()
     page.wait_for_timeout(2000)

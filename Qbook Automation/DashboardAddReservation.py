@@ -31,18 +31,6 @@ def run(playwright: Playwright) -> None:
     page.wait_for_timeout(2000) # Wait for 2 seconds
     page.get_by_title("Reservation", exact=True).click()
     page.wait_for_timeout(2000) # Wait for 2 seconds
-
-    # Set time
-    page.locator(".ant-select.ant-select-outlined.ant-select-in-form-item.ant-select-status-success.css-1nf76zr.ant-select-focused > .ant-select-selector").click()
-    page.wait_for_timeout(2000)
-    page.locator("div").filter(has_text=re.compile(r"^Start$")).nth(1).click()
-    page.wait_for_timeout(2000)
-    page.get_by_role("button", name="21:00").click()
-    page.wait_for_timeout(2000)
-    page.locator("div").filter(has_text=re.compile(r"^End$")).nth(1).click()
-    page.wait_for_timeout(2000)
-    page.get_by_role("button", name="22:00").click()
-    page.wait_for_timeout(2000)
     
     # Select table
     page.get_by_text("No selected tables").click()
