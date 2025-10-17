@@ -32,14 +32,27 @@ def run(playwright: Playwright) -> None:
     page.get_by_title("Reservation", exact=True).click()
     page.wait_for_timeout(2000) # Wait for 2 seconds
 
+    # Set time
+    page.locator(".ant-select.ant-select-outlined.ant-select-in-form-item.ant-select-status-success.css-1nf76zr.ant-select-focused > .ant-select-selector").click()
+    page.wait_for_timeout(2000)
+    page.locator("div").filter(has_text=re.compile(r"^Start$")).nth(1).click()
+    page.wait_for_timeout(2000)
+    page.get_by_role("button", name="21:00").click()
+    page.wait_for_timeout(2000)
+    page.locator("div").filter(has_text=re.compile(r"^End$")).nth(1).click()
+    page.wait_for_timeout(2000)
+    page.get_by_role("button", name="22:00").click()
+    page.wait_for_timeout(2000)
+    
     # Select table
     page.get_by_text("No selected tables").click()
     page.wait_for_timeout(5000) # Wait for 5 seconds
-    page.get_by_role("checkbox", name="A1", exact=True).check()
+    page.get_by_role("checkbox", name="A5", exact=True).check()
     page.wait_for_timeout(5000) # Wait for 5 seconds
     page.get_by_label("Select Table(s) for").get_by_role("button", name="Save").click()
     page.wait_for_timeout(2000) # Wait for 2 seconds
 
+    
     # Add guests
     page.get_by_text("Adult (10)").click()
     page.wait_for_timeout(2000) # Wait for 2 seconds
@@ -47,6 +60,7 @@ def run(playwright: Playwright) -> None:
     page.wait_for_timeout(5000) # Wait for 5 seconds
     page.get_by_label("Add Guests").get_by_role("button", name="Save").click()
 
+    
     # Select customer
     page.locator("div").filter(has_text=re.compile(r"^Customer$")).nth(2).click()
     page.wait_for_timeout(2000) # Wait for 2 seconds
