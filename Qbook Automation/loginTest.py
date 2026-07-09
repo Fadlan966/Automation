@@ -15,7 +15,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("textbox", name="Email").fill("muhmmdfdln@gmail.com")
     page.wait_for_timeout(2000) # Tunggu 2 detik
     page.get_by_role("textbox", name="Password").click()
-    page.get_by_role("textbox", name="Password").fill("Qbook@2025")
+    page.get_by_role("textbox", name="Password").fill("Qbook@2026")
     page.wait_for_timeout(2000) # Tunggu 2 detik
 
     # Klik tombol Sign In
