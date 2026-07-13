@@ -15,8 +15,9 @@ def booking(page):
 
     # Select Time
     page.get_by_role("button", name="Select Time").click()
-    page.get_by_role("button", name="19:00").click()
-
+    page.get_by_role("button", name="15:30").click()
+    # page.get_by_role("button", name="16:30").click()
+    # page.get_by_role("button", name="19:00").click()
     # Find Availability
     page.get_by_role("button", name="Find Availability").click()
 
