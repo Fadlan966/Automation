@@ -12,7 +12,7 @@ def run(playwright: Playwright) -> None:
     page.wait_for_timeout(1500)
     page.get_by_role("button", name="Select Date").click()
     page.wait_for_timeout(1500)
-    page.get_by_role("button", name="Today, Friday, July 10th,").click()
+    page.get_by_role("button", name="Today, Monday, July 13th,").click()
     page.wait_for_timeout(1500)
     page.get_by_role("button", name="Select Time").click()
     page.wait_for_timeout(1500)
