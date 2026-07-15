@@ -160,7 +160,7 @@ git push origin nama-branch-baru
 ---
 
 
-## CMS & WEB Codegen
+## 🗝️ CMS & WEB Codegen
 
 playwright codegen --target python -o testcaseqbook.py https://cms-staging.qbookapp.com/login  
 playwright codegen --target python -o testcaseqbook.py https://web-staging.qbookapp.com/outlet/KNTEST/book-now
