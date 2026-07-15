@@ -2,6 +2,7 @@ import re
 from playwright.sync_api import Playwright, sync_playwright
 
 PHONE_NUMBER = "88975264915"
+                # "881012177133"
 
 def booking(page):
     page.goto("https://web-staging.qbookapp.com/outlet/KNTEST/book-now")
@@ -11,7 +12,7 @@ def booking(page):
 
     # Select Date
     page.get_by_role("button", name="Select Date").click()
-    page.get_by_role("button", name="Today").click()
+    page.get_by_role("button", name="Thursday, July 16th,").click()
 
     # Select Time
     page.get_by_role("button", name="Select Time").click()

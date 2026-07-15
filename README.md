@@ -156,3 +156,8 @@ git push origin nama-branch-baru
 * Gunakan selector yang **spesifik** seperti `get_by_role`, `get_by_text`, atau `get_by_test_id`.
 * Tambahkan `assert` untuk memverifikasi hasil test.
 * Gunakan `playwright codegen` untuk mempercepat penulisan test case.
+
+--- CMS & WEB Codegen ---
+
+playwright codegen --target python -o testcaseqbook.py https://cms-staging.qbookapp.com/login  
+playwright codegen --target python -o testcaseqbook.py https://web-staging.qbookapp.com/outlet/KNTEST/book-now
