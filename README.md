@@ -157,7 +157,10 @@ git push origin nama-branch-baru
 * Tambahkan `assert` untuk memverifikasi hasil test.
 * Gunakan `playwright codegen` untuk mempercepat penulisan test case.
 
---- CMS & WEB Codegen ---
+---
+
+
+## CMS & WEB Codegen
 
 playwright codegen --target python -o testcaseqbook.py https://cms-staging.qbookapp.com/login  
 playwright codegen --target python -o testcaseqbook.py https://web-staging.qbookapp.com/outlet/KNTEST/book-now
