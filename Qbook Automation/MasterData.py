@@ -20,7 +20,7 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name="KN Testing").click()
     page.get_by_role("button", name="plus Add Purpose").click()
     page.get_by_role("textbox", name="Purpose Name").click()
-    page.get_by_role("textbox", name="Purpose Name").fill("AutoTest01")
+    page.get_by_role("textbox", name="Purpose Name").fill("AutoTest012")
     page.get_by_role("button", name="Create").click()
     page.locator(".ant-input-affix-wrapper").first.click()
     page.get_by_role("textbox", name="Search").first.fill("Auto")
