@@ -4,6 +4,7 @@ Skenario: Login -> Queue Controller -> Tambah customer ke antrian
           Outdoor (Smoking) -> Tutup QR -> Logout
 """
 
+import random
 import re
 from playwright.sync_api import Playwright, sync_playwright
 
@@ -13,6 +14,16 @@ EMAIL = "muhmmdfdln@gmail.com"
 PASSWORD = "Qbook@2026"
 OUTLET_NAME = "KN Testing"
 CUSTOMER_PHONE = "0881012177133"
+
+# Kategori antrian yang tersedia di outlet ini (lihat Queue Controller).
+# Dipilih ACAK tiap run biar reservasi nggak numpuk di kategori yang sama terus.
+QUEUE_CATEGORIES = [
+    "Family/Group Table",
+    "Outdoor (Smoking)",
+    "Indoor",
+    "Rebels",
+    "Training",
+]
 
 SLOW_MO_MS = 800        # jeda otomatis di SETIAP aksi (klik, ketik, dll)
 CHECKPOINT_MS = 3000    # jeda tambahan di titik-titik penting
@@ -47,12 +58,14 @@ def run(playwright: Playwright) -> None:
     page.get_by_role("option", name=OUTLET_NAME).click()
     page.wait_for_timeout(CHECKPOINT_MS)
 
-    # ---------- 4. Tambah antrian Outdoor (Smoking) ----------
-    print("[4/7] Tambah antrian Outdoor (Smoking)...")
-    outdoor_smoking_card = page.locator("div").filter(
-        has_text=re.compile(r"^Outdoor \(Smoking\)")
+    # ---------- 4. Tambah antrian (kategori dipilih acak) ----------
+    selected_category = random.choice(QUEUE_CATEGORIES)
+    print(f"[4/7] Tambah antrian ke kategori: {selected_category}...")
+    category_pattern = re.compile(rf"^{re.escape(selected_category)}")
+    category_card = page.locator("div").filter(
+        has_text=category_pattern
     ).filter(has=page.get_by_role("button", name="Add")).first
-    outdoor_smoking_card.get_by_role("button", name="Add").click()
+    category_card.get_by_role("button", name="Add").click()
     page.wait_for_timeout(CHECKPOINT_MS)
 
     # ---------- 5. Isi Customer Info ----------
