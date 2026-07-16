@@ -1,9 +1,3 @@
-"""
-Automation Playwright - QBook CMS (Staging)
-Skenario: Login -> Queue Controller -> Tambah customer ke antrian
-          Outdoor (Smoking) -> Tutup QR -> Logout
-"""
-
 import random
 import re
 from playwright.sync_api import Playwright, sync_playwright
@@ -15,8 +9,6 @@ PASSWORD = "Qbook@2026"
 OUTLET_NAME = "KN Testing"
 CUSTOMER_PHONE = "0881012177133"
 
-# Kategori antrian yang tersedia di outlet ini (lihat Queue Controller).
-# Dipilih ACAK tiap run biar reservasi nggak numpuk di kategori yang sama terus.
 QUEUE_CATEGORIES = [
     "Family/Group Table",
     "Outdoor (Smoking)",
@@ -25,8 +17,8 @@ QUEUE_CATEGORIES = [
     "Training",
 ]
 
-SLOW_MO_MS = 800        # jeda otomatis di SETIAP aksi (klik, ketik, dll)
-CHECKPOINT_MS = 3000    # jeda tambahan di titik-titik penting
+SLOW_MO_MS = 800
+CHECKPOINT_MS = 1000
 
 
 def run(playwright: Playwright) -> None:
