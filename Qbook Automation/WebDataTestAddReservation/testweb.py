@@ -12,7 +12,7 @@ def booking(page):
 
     # Select Date
     page.get_by_role("button", name="Select Date").click()
-    page.get_by_role("button", name="Thursday, July 16th,").click()
+    page.get_by_role("button", name="Today").click()
 
     # Select Time
     page.get_by_role("button", name="Select Time").click()
